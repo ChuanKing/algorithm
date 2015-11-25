@@ -1,0 +1,44 @@
+private void morris(TreeNode root) {		
+	TreeNode dump = new TreeNode(0);
+	dump.left = root;
+	TreeNode p = dump, pre;
+	
+	while (p != null) {
+		if (p.left == null) {
+			p = p.right;
+		} else {
+			pre = p.left;
+			while (pre.right != null && pre.right != p) pre = pre.right;
+			if (pre.right == null) {
+				pre.right = p;
+				p = p.left;
+			} else {
+				printNode(p.left, pre);
+				pre.right = null;
+				p = p.right;
+			}
+		}
+	}
+}
+
+private void printNode (TreeNode start, TreeNode end) {
+	reverse(start, end);
+	TreeNode p = end;
+	while (true) {
+		System.out.print(p.val);
+		if (p == start) break;
+		p = p.right;
+	}
+	reverse(end, start);
+}
+
+private void reverse (TreeNode start, TreeNode end) {
+	if (start == end) return;
+	TreeNode x = start, y = start.right, z;
+	while (x != end) {
+		z = y.right;
+		y.right = x;
+		x = y;
+		y = z;
+	}
+}

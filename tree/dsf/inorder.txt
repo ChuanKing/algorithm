@@ -1,0 +1,6 @@
+private void dsf(TreeNode root) {
+	if (root == null) return;
+	dsf(root.left);
+	System.out.print(root);
+	dsf(root.right);
+}

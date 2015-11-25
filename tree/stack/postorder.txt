@@ -1,0 +1,18 @@
+private void stack(TreeNode root) {		
+	Stack<TreeNode> stack = new Stack<TreeNode>();
+	TreeNode p = root, pre = null;
+	while (!stack.isEmpty() || p != null) {
+		if (p != null) {
+			stack.push(p);
+			p = p.left;
+		} else {
+			TreeNode peek = stack.peek();
+			if (peek.right != null && peek.right != pre) {
+				p = peek.right;
+			} else {
+				System.out.print(peek.val);
+				pre = stack.pop();
+			}
+		}
+	}
+}
