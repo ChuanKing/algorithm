@@ -1,0 +1,35 @@
+private static int N;
+
+public static void sort(int[] arr) {
+	heapfy(arr);
+	for (int i = N; i >= 0; i--) {
+		swap(arr, N, 0);
+		N--;
+		maxHeap(arr, 0);
+	}
+}
+
+private static void heapfy(int[] arr) {
+	N = arr.length - 1;
+	for (int i = N/2; i >= 0; i--) {
+		maxHeap(arr, i);
+	}
+}
+
+private static void maxHeap(int[] arr, int i) {
+	int left = i * 2;
+	int right = i * 2 + 1;
+	int max = i;
+	if (left <= N && arr[left] > arr[max]) max = left;
+	if (right <= N && arr[right] > arr[max]) max = right;
+	if (max != i) {
+		swap(arr, i, max);
+		maxHeap(arr, max);
+	}
+}
+
+private static void swap(int[] arr, int idx1, int idx2) {
+	int temp = arr[idx1];
+	arr[idx1] = arr[idx2];
+	arr[idx2] = temp;
+}
