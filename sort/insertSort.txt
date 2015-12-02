@@ -1,3 +1,5 @@
+//----------------------------------------------
+// insert 1
 public void insertSort(int[] array) {
 	for (int i = 1; i < array.length; i++) {
 		int j = i;
@@ -12,7 +14,8 @@ public void insertSort(int[] array) {
 }
 
 
-// insert
+//----------------------------------------------
+// insert 2
 public void insertSort(int[] array) {
 	for (int i = 1; i < array.length; i++) {
 		int j = i;
@@ -28,3 +31,22 @@ private void swap(int[] array, int p1, int p2) {
 	array[p1] = array[p2];
 	array[p2] = temp;
 }
+
+
+//----------------------------------------------
+// insert 2
+public void insertSort(int[] array) {
+	for (int i = 1; i < array.length; i++) {
+		for (int j = i - 1; j >= 0 && array[j] > array[j+1]; j--) {
+			swap(array, j, j+1);
+		}
+	}
+}
+
+private void swap(int[] array, int p1, int p2) {
+	int temp = array[p1];
+	array[p1] = array[p2];
+	array[p2] = temp;
+}
+
+
