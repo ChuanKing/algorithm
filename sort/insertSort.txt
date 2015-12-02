@@ -1,0 +1,30 @@
+public void insertSort(int[] array) {
+	for (int i = 1; i < array.length; i++) {
+		int j = i;
+		int num = array[j];
+		array[i] = array[i-1];
+		while (num < array[j] && j > 0) {
+			array[j] = array[j-1];
+			j--;
+		}
+		array[j] = num;
+	}
+}
+
+
+// insert
+public void insertSort(int[] array) {
+	for (int i = 1; i < array.length; i++) {
+		int j = i;
+		while (j > 0 && array[j] < array[j-1]) {
+			swap(array, j, j-1);
+			j--;
+		}
+	}
+}
+
+private void swap(int[] array, int p1, int p2) {
+	int temp = array[p1];
+	array[p1] = array[p2];
+	array[p2] = temp;
+}

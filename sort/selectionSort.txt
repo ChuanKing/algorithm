@@ -1,0 +1,15 @@
+public void bubbleSort(int[] array) {
+	for (int i = 0; i < array.length-1; i++) {
+		for (int j = i; j < array.length; j++) {
+			if (array[i] > array[j]) {
+				swap(array, i, j);
+			}
+		}
+	}
+}
+
+private void swap(int[] array, int p1, int p2) {
+	int temp = array[p1];
+	array[p1] = array[p2];
+	array[p2] = temp;
+}
