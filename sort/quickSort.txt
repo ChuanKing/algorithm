@@ -12,7 +12,6 @@ private int partition(int[] nums, int left, int right) {
 		while(nums[i] < pivot) i++;
 		while(nums[j] > pivot) j--;
 		if (i <= j) swap(nums, i++, j--);
-		
 	}
 	
 	return i;
