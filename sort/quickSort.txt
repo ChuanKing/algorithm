@@ -1,0 +1,25 @@
+private void quickSort(int[] nums, int left, int right) {
+	int idx = partition(nums, left, right);
+	if (left < idx - 1) quickSort(nums, left, idx - 1);
+	if (right > idx) quickSort(nums, idx, right);
+}
+
+private int partition(int[] nums, int left, int right) {
+	int i = left, j = right;
+	int pivot = nums[(left + right) / 2];
+	
+	while (i <= j) {
+		while(nums[i] < pivot) i++;
+		while(nums[j] > pivot) j--;
+		if (i <= j) swap(nums, i++, j--);
+		
+	}
+	
+	return i;
+}
+
+private void swap (int[] nums, int i, int j) {
+	int temp = nums[i];
+	nums[i] = nums[j];
+	nums[j] = temp;
+}
