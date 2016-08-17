@@ -34,7 +34,7 @@ private void swap(int[] array, int p1, int p2) {
 
 
 //----------------------------------------------
-// insert 2
+// insert 3
 public void insertSort(int[] array) {
 	for (int i = 1; i < array.length; i++) {
 		for (int j = i - 1; j >= 0 && array[j] > array[j+1]; j--) {
